@@ -6,10 +6,10 @@
         <div class="columns">
           <div class="column is-3"></div>
           <div class="column is-5">
-            <input class="input" type="text"  placeholder="Search" />
+            <input class="input" type="text"  placeholder="Search" v-model="search"/>
           </div>
           <div class="column is-2">
-            <button  class="button">Search</button>
+            <button  class="button" @click="showSeach">Search</button>
           </div>
           <div class="column is-3">
             <button class="button" @click="modalAddSubject=true">เพิ่มรายวิชา</button>
@@ -23,7 +23,7 @@
         <!-- <div class="columns"> -->
           
           <div class="column is-6 " style="margin-left:25%; " >
-            <div v-for="mySubject in mySubject" :key="mySubject.id" class="card mb-3 py-2" style="background-color: #3C486B;">
+            <div v-for="mySubject in showMySubject" :key="mySubject.id" class="card mb-3 py-2" style="background-color: #3C486B;">
               
               <div class="card-content ">
                
@@ -159,12 +159,15 @@ export default {
       modalAddSubject:false,
       modalShowDetail:false,
       selectSubject:[],
+      search:"",
+      showMySubject:[],
 
     };
   },
   mounted() {
     // this.getNovels();
     // this.getShelfBooks();
+    this.showSeach();
   },
   methods: {
     // getNovels() {
@@ -213,6 +216,7 @@ export default {
 
         if(myS.length<=0){
           this.mySubject.push(addS[0]);
+          this.showMySubject = this.mySubject
           this.modalAddSubject = false;
         }
         else{
@@ -229,6 +233,14 @@ export default {
     showDetail(id){
       this.modalShowDetail = true;
       this.selectSubject = this.mySubject.filter((val)=>(id==val.id))
+    },
+    showSeach(){
+      if(this.search==''){
+        this.showMySubject=this.mySubject
+      }
+      else{
+        this.showMySubject=this.mySubject.filter((val)=>(val.id==this.search || val.name ==this.search))
+      }
     }
   },
 };
