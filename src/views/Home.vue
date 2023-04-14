@@ -1,5 +1,6 @@
-<template>
-  <div class="container is-widescreen">
+<template >
+
+  <div class="container fluid" >
     <section class="hero">
       <div class="hero-body">
         <!-- Searchhh -->
@@ -23,14 +24,22 @@
         <!-- <div class="columns"> -->
           
           <div class="column is-6 " style="margin-left:25%; " >
-            <div v-for="mySubject in showMySubject" :key="mySubject.id" class="card mb-3 py-2" style="background-color: #3C486B;">
+            <div v-for="mySubject in showMySubject" :key="mySubject.id" class="card mb-3 py-2" style="background-color: #3A4F7A;box-shadow: 8px 8px #FFECEF">
               
               <div class="card-content ">
                
                
                 <h4  style="color:#FFF;">{{mySubject.id}}</h4>
                 <h5 style="color:#FFF;">{{mySubject.name}}</h5>
-                <div style="color:#FFF">{{mySubject.date +"  "+mySubject.time}}<span style="float:right"><div class="button" @click="showDetail(mySubject.id)">ดูเพิ่มเติม > </div></span></div>
+                <div style="color:#FFF"> 
+                  <span style="background-color: #FFF;color:#3C4868;padding:5px; border-radius: 50%; padding-left:10px;padding-right:10px;margin-right:15px;font-weight: bold;" >{{mySubject.date}}</span>
+                  <span>{{mySubject.time}}</span>
+                  
+                  <span style="float:right"><div class="button" @click="showDetail(mySubject.id)">ดูเพิ่มเติม > </div></span>
+                  <span style="float:right"><div class="button mx-2" >ดูข่าวสาร </div></span>
+
+                </div>
+                <!-- <div style="color:#FFF">{{mySubject.date +"  "+mySubject.time}}<span style="float:right"><div class="button" @click="showDetail(mySubject.id)">ดูเพิ่มเติม > </div></span></div> -->
                 <!-- <div class="content" style="height: 100px;">descript: {{ shortContent(novel.descript) }}</div> -->
               </div>
                
@@ -239,9 +248,12 @@ export default {
         this.showMySubject=this.mySubject
       }
       else{
-        this.showMySubject=this.mySubject.filter((val)=>(val.id==this.search || val.name ==this.search))
+        this.showMySubject=this.mySubject.filter((val)=>(val.id.includes(this.search) || val.name.includes(this.search.toUpperCase())))
       }
     }
+
+    //text.includes("world");
+
   },
 };
 </script>
