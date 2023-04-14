@@ -60,7 +60,7 @@
                 <div>เวลา : {{ subjectnews.time }} </div>
               </div>
               
-              <div class="button" @click="confirmNews(index)" > ยืนยันทราบข่าวสาร </div>
+              <div class="button" v-if="!selectnews.bgSuccess" @click="confirmNews(index)" > ยืนยันทราบข่าวสาร </div>
               
             </section>
             
@@ -85,7 +85,7 @@
         selectnews_subject:[],
         newsTotal:[
             {id:1,idSubject:"06016310",teach:"รศ.ดร.นพพร โชติกกำธร",topic:"การเปลี่ยนแปลงสถานที่เรียน",date:"20/11/65",time:"8.45",detail:"เนื่องด้วยปัญหาทางเทคนิคจึงขอเปลี่ยนเวลาที่ทำการเรียนการสอนเป็น 14.30-16.30 น.",bgSuccess:false},
-            {id:2,idSubject:"06016310",teach:"รศ.ดร.นพพร โชติกกำธร",topic:"การเปลี่ยนแปลงสถานที่เรียน",date:"12/11/65",time:"10.05",detail:"เนื่องด้วยปัญหาทางเทคนิคจึงขอเปลี่ยนสถานที่ที่ทำการสอนเป็น project base 3",bgSuccess:false},
+            {id:2,idSubject:"06016310",teach:"รศ.ดร.นพพร โชติกกำธร",topic:"การเปลี่ยนแปลงสถานที่เรียน",date:"12/11/65",time:"10.05",detail:"เนื่องด้วยปัญหาทางเทคนิคจึงขอเปลี่ยนสถานที่ที่ทำการสอนเป็น project base 3",bgSuccess:true},
             {id:3,idSubject:"06016325",teach:"ผศ.ดร. ธราวิเชษฐ์ ธิติจรูญโรจน์",topic:"การเปลี่ยนแปลงสถานที่เรียน",date:"20/11/65",time:"7.00",detail:"เนื่องด้วยปัญหาทางเทคนิคจึงขอเปลี่ยนเวลาที่ทำการเรียนการสอนเป็น 14.30-16.30 น.",bgSuccess:false},
 
 

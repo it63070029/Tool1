@@ -29,7 +29,7 @@
           <div  class="navbar-item">
            <router-link to="/">
               <span class="icon">
-                <i class="fa fa-folder-open"></i>
+                <i class="fa fa-house"></i>
               </span>
               <strong>Home</strong>
            </router-link>

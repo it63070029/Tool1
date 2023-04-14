@@ -28,11 +28,17 @@
               
               <div class="card-content ">
                
-               
-                <h4  style="color:#FFF;">{{mySubject.id}}</h4>
-                <h5 style="color:#FFF;">{{mySubject.name}}</h5>
+                <h4  style="color:#FFF;">
+                  <span class="icon">
+                    <i class="fa fa-info-circle"></i>
+                  </span>
+                  {{mySubject.id}}
+                </h4>
+                <h6 style="color:#FFF;">
+                  
+                  {{mySubject.name}}</h6>
                 <div style="color:#FFF"> 
-                  <span style="background-color: #FFF;color:#3C4868;padding:5px; border-radius: 50%; padding-left:10px;padding-right:10px;margin-right:15px;font-weight: bold;" >{{mySubject.date}}</span>
+                  <span style="background-color: #FFF;color:#3C4868;padding:3px; border-radius: 60%; padding-left:10px;padding-right:6px;margin-right:15px;font-weight: bold; " >{{mySubject.date}}</span>
                   <span>{{mySubject.time}}</span>
                   
                   <span style="float:right"><div class="button" @click="showDetail(mySubject.id)">ดูเพิ่มเติม > </div></span>
@@ -196,7 +202,9 @@ export default {
       ],
       users:this.user,
       mySubject:[
-         {id:"06016310",name:"HUMAN INTERFACE DESIGN",credit:"3",teach:"รศ.ดร.นพพร โชติกกำธร",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"จ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"manop@it.kmitl.ac.th"},
+        {id:"06016310",name:"HUMAN INTERFACE DESIGN",credit:"3",teach:"รศ.ดร.นพพร โชติกกำธร",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"จ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"manop@it.kmitl.ac.th"},
+        {id:"06016323",name:"MOBILE DEVICE PROGRAMMING",credit:"3",teach:"ดร. พัฒนพงษ์ ฉันทมิตรโอภาส",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง L207",time:"14.00-18.00",date:"อ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"pattanapong@it.kmitl.ac.th"},
+
      
         ],
       idSubject:"",
