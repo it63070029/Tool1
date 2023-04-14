@@ -36,7 +36,7 @@
                   <span>{{mySubject.time}}</span>
                   
                   <span style="float:right"><div class="button" @click="showDetail(mySubject.id)">ดูเพิ่มเติม > </div></span>
-                  <span style="float:right"><div class="button mx-2" >ดูข่าวสาร </div></span>
+                  <span style="float:right"><div class="button mx-2" @click="linktoNews(mySubject.id,mySubject)">ดูข่าวสาร </div></span>
 
                 </div>
                 <!-- <div style="color:#FFF">{{mySubject.date +"  "+mySubject.time}}<span style="float:right"><div class="button" @click="showDetail(mySubject.id)">ดูเพิ่มเติม > </div></span></div> -->
@@ -71,21 +71,38 @@
                 </select>
                 
               </div>
-              <div v-if="idSubject!==''">
+              <!-- <div v-if="idSubject!==''">
               เซค :
                <div class="select">
                 <select v-model="idSubject" class="px-5 mr-3" style="padding-right:100px">
                   <option v-for="subject in subject" :key="subject.id"  style="padding-right:100px">{{subject.id}}</option>
                 </select>
                 
-              </div></div>
+              </div></div> -->
 
             </div>
              
             <div class="columns" v-for="subject in subject" :key="subject.id">
               
              <div v-if="idSubject== subject.id">
-              <div>รหัสวิชา : {{subject.id}} ชื่อวิชา :{{subject.name}} เวลา : {{subject.time[0].no1}}</div>
+              <div>รหัสวิชา : {{subject.id}}</div>
+              
+             </div>
+             
+            </div>
+            <div class="columns" v-for="subject in subject" :key="subject.id">
+              
+             <div v-if="idSubject== subject.id">
+              <div>ชื่อวิชา :{{subject.name}} เวลา : {{subject.time}}</div>
+              
+             </div>
+             
+             
+            </div>
+            <div class="columns" v-for="subject in subject" :key="subject.id">
+              
+             <div v-if="idSubject== subject.id">
+              <div> เวลา : {{subject.time}}</div>
               
              </div>
              
@@ -110,27 +127,42 @@
           <section class="modal-card-body">
             <!-- Content ... -->
            
-            <div class="columns" style="margin-bottom: 20px;">
-              <h3>รายละเอียดรายวิชา</h3>
+            <div class="columns" style="margin-bottom: 20px;margin-left:5%">
+              <div class="content">รายละเอียดรายวิชา</div>
             </div>
-            <div class="columns" style="margin-bottom: 20px;">
+            <div class="columns" style="margin-bottom: 20px;margin-left:5%">
               <div>รหัสวิชา : {{selectSubject.id}}</div>
             </div>
-             <div class="columns" style="margin-bottom: 20px;">
+             <div class="columns" style="margin-bottom: 20px;margin-left:5%">
               <div>อาจารย์ผู้สอน : {{selectSubject.teach}}</div>
             </div>
-             <div class="columns" style="margin-bottom: 20px;">
-              <div>ช่องทางติดต่อ</div>
+             <div class="columns" style="margin-bottom: 20px;margin-left:5%">
+              <div>ช่องทางติดต่อ : <span>{{selectSubject.email}}</span></div>
             </div>
             
-             <div class="columns" style="margin-bottom: 20px;"> 
+             <div class="columns" style="margin-bottom: 20px;margin-left:5%"> 
               <p>วัน-เวลาที่เรียน : </p>
               <div>{{"  "+selectSubject.date + "  " +selectSubject.time}}</div>
             
             </div>
-             <div class="columns" style="margin-bottom: 20px;">
+             <div class="columns" style="margin-bottom: 20px; margin-left:5%">
               <div>สถานที่เรียน : {{selectSubject.room}}</div>
             </div>
+            <div class="columns" style="margin-bottom: 20px;margin-left:25%">
+              <figure class="image">
+                  <img
+                    style="height: 150px;width: 150px;border-radius: 25px;"
+                    :src=selectSubject.image[0].no1
+                    alt="Placeholder image"
+                  />
+                </figure>
+            </div>
+            <div class="columns" style="margin-bottom: 20px; margin-left:5%;margin-top:20px">
+              <div>เส้นทางการเดินทาง : <a>{{selectSubject.route}}</a></div>
+            </div>
+            <!-- <div class="columns" style="margin-bottom: 20px; margin-left:5%">
+              <a>{{selectSubject.route}}</a>
+            </div> -->
              
             
           </section>
@@ -155,13 +187,16 @@ export default {
     return {
       
       subject: [
-        {id:"06016327",name:"Software",credit:"3",teach:"รศ.ดร.นพพร โชติกกำธร",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"จ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share"},
-        {id:"90304004",name:"REPORT WRITING",credit:"3",teach:"รศ.ดร.นพพร โชติกกำธร",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"พ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share"},
-        {id:"06016310",name:"HUMAN INTERFACE DESIGN",credit:"3",teach:"รศ.ดร.นพพร โชติกกำธร",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"จ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share"},
+        {id:"06016325",name:"SERVICE-ORIENTED PROGRAMMING",credit:"3",teach:"ผศ.ดร. ธราวิเชษฐ์ ธิติจรูญโรจน์",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"ศ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"taravichet@it.kmitl.ac.th"},
+        {id:"90304004",name:"REPORT WRITING",credit:"3",teach:"ผศ. จันจิรา จันทร์เจริญสุข",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"พ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"pjjuyt@gmail.com"},
+        {id:"06016310",name:"HUMAN INTERFACE DESIGN",credit:"3",teach:"รศ.ดร.นพพร โชติกกำธร",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"จ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"nopporn@it.kmitl.ac.th"},
+        {id:"06016309",name:"INFORMATION SYSTEM SECURITY AND IT LAWS",credit:"3",teach:"ผศ.ดร. สุเมธ ประภาวัต",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง M23",time:"9.00-13.00",date:"อ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"sumet@it.kmitl.ac.th"},
+        {id:"06016319",name:"INTRODUCTION TO COMPUTER SYSYEMS",credit:"3",teach:"ผศ.ดร. สุภกิจ นุตยะสกุล",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง PROJECT BASE ชั้น 3",time:"13.00-16.00",date:"พ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"supakit@it.kmitl.ac.th"},
+        {id:"06016323",name:"MOBILE DEVICE PROGRAMMING",credit:"3",teach:"ดร. พัฒนพงษ์ ฉันทมิตรโอภาส",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง L207",time:"14.00-18.00",date:"อ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"pattanapong@it.kmitl.ac.th"},
       ],
       users:this.user,
       mySubject:[
-         {id:"06016310",name:"HUMAN INTERFACE DESIGN",credit:"3",teach:"รศ.ดร.นพพร โชติกกำธร",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"จ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share"},
+         {id:"06016310",name:"HUMAN INTERFACE DESIGN",credit:"3",teach:"รศ.ดร.นพพร โชติกกำธร",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"จ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"manop@it.kmitl.ac.th"},
      
         ],
       idSubject:"",
@@ -178,45 +213,10 @@ export default {
     // this.getShelfBooks();
     this.showSeach();
   },
-  methods: {
-    // getNovels() {
-    //   axios
-    //     .get("http://localhost:3000", {
-    //       params: {
-    //         search: this.search,
-    //       },
-    //     })
-    //     .then((response) => {
-    //       this.novels = response.data;
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // },
-    // imagePath(file_path) {
-    //   if (file_path) {
-    //     return "http://localhost:3000/" + file_path;
-    //   } else {
-    //     return "https://bulma.io/images/placeholders/640x360.png";
-    //   }
-    // },
-  
+  methods: {  
     addMySubject(){
       console.log("AddSubject")
-      // for(let i =0;i<this.mySubject.length;i++){
-      //   if(this.idSubject==this.mySubject[i].id){
-      //     alert("คุณได้เพิ่มวิชานี้ในชั้นเรียนแล้ว")
-      //   }
-        
-      //   else{
-      //     console.log("hiii")
-      //     let addS = this.subject.filter(val.id ==this.idSubject)
-      //      console.log(addS)
-      //     this.mySubject.push(addS);
-      //     this.modalAddSubject = false
-      //   }
-
-      // }
+ 
       let addS = this.subject.filter((val)=>(val.id ==this.idSubject))
       let myS = this.mySubject.filter((val)=>(this.idSubject ==val.id))
       console.log(addS[0])
@@ -235,9 +235,7 @@ export default {
       else{
         this.modalAddSubject = false
       }
-      
-
-      
+  
     },
     showDetail(id){
       this.modalShowDetail = true;
@@ -250,9 +248,11 @@ export default {
       else{
         this.showMySubject=this.mySubject.filter((val)=>(val.id.includes(this.search) || val.name.includes(this.search.toUpperCase())))
       }
-    }
+    },
 
-    //text.includes("world");
+    linktoNews(id,mySubject){
+      this.$router.push({ name: 'news2', params: { idSubject:id ,name:mySubject.name,teach:mySubject.teach}})
+    }
 
   },
 };

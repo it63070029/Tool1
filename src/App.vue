@@ -34,19 +34,13 @@
               <strong>Home</strong>
            </router-link>
           </div>
-          <div  class="navbar-item">
-            <span class="icon">
-                <i class="fa fa-star"></i>
-              </span>
-              <strong>Shelf Book</strong>
-           
-          </div>
            <div class="navbar-item">
-            
+            <router-link to="/news">
               <span class="icon">
                 <i class="fa fa-user-circle"></i>
               </span>
               <strong>Notification</strong>
+              </router-link>
             
           </div>
           <!-- <div class="navbar-item" @click="logOut()">
