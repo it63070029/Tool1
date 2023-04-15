@@ -154,11 +154,18 @@
              <div class="columns" style="margin-bottom: 20px; margin-left:5%">
               <div>สถานที่เรียน : {{selectSubject.room}}</div>
             </div>
-            <div class="columns" style="margin-bottom: 20px;margin-left:25%">
+            <div class="columns" style="margin-bottom: 20px;margin-left:20%">
               <figure class="image">
                   <img
                     style="height: 150px;width: 150px;border-radius: 25px;"
                     :src=selectSubject.image[0].no1
+                    alt="Placeholder image"
+                  />
+                </figure>
+                <figure class="image mx-2" >
+                  <img 
+                    style="height: 150px;width: 150px;border-radius: 25px;"
+                    :src=selectSubject.image[0].no2
                     alt="Placeholder image"
                   />
                 </figure>
@@ -192,20 +199,19 @@ export default {
   data() {
     return {
       
-      subject: [
-        {id:"06016325",name:"SERVICE-ORIENTED PROGRAMMING",credit:"3",teach:"ผศ.ดร. ธราวิเชษฐ์ ธิติจรูญโรจน์",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"ศ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"taravichet@it.kmitl.ac.th"},
-        {id:"90304004",name:"REPORT WRITING",credit:"3",teach:"ผศ. จันจิรา จันทร์เจริญสุข",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"พ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"pjjuyt@gmail.com"},
-        {id:"06016310",name:"HUMAN INTERFACE DESIGN",credit:"3",teach:"รศ.ดร.นพพร โชติกกำธร",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"จ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"nopporn@it.kmitl.ac.th"},
-        {id:"06016309",name:"INFORMATION SYSTEM SECURITY AND IT LAWS",credit:"3",teach:"ผศ.ดร. สุเมธ ประภาวัต",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง M23",time:"9.00-13.00",date:"อ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"sumet@it.kmitl.ac.th"},
-        {id:"06016319",name:"INTRODUCTION TO COMPUTER SYSYEMS",credit:"3",teach:"ผศ.ดร. สุภกิจ นุตยะสกุล",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง PROJECT BASE ชั้น 3",time:"13.00-16.00",date:"พ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"supakit@it.kmitl.ac.th"},
-        {id:"06016323",name:"MOBILE DEVICE PROGRAMMING",credit:"3",teach:"ดร. พัฒนพงษ์ ฉันทมิตรโอภาส",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง L207",time:"14.00-18.00",date:"อ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"pattanapong@it.kmitl.ac.th"},
+       subject: [
+        {id:"06016325",name:"SERVICE-ORIENTED PROGRAMMING",credit:"3",teach:"ผศ.ดร. ธราวิเชษฐ์ ธิติจรูญโรจน์",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"ศ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg",no2:"https://www.it.kmitl.ac.th/wp-content/themes/itkmitl2017wp/img/life/life-10.jpg"}],route:"https://g.page/ITKMITL?share",email:"taravichet@it.kmitl.ac.th"},
+        {id:"90304004",name:"REPORT WRITING",credit:"3",teach:"ผศ. จันจิรา จันทร์เจริญสุข",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"พ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg",no2:"https://www.it.kmitl.ac.th/wp-content/themes/itkmitl2017wp/img/life/life-10.jpg"}],route:"https://g.page/ITKMITL?share",email:"pjjuyt@gmail.com"},
+        {id:"06016310",name:"HUMAN INTERFACE DESIGN",credit:"3",teach:"รศ.ดร.นพพร โชติกกำธร",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"จ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg",no2:"https://www.it.kmitl.ac.th/wp-content/themes/itkmitl2017wp/img/life/life-10.jpg"}],route:"https://g.page/ITKMITL?share",email:"nopporn@it.kmitl.ac.th"},
+        {id:"06016309",name:"INFORMATION SYSTEM SECURITY AND IT LAWS",credit:"3",teach:"ผศ.ดร. สุเมธ ประภาวัต",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง M23",time:"9.00-13.00",date:"อ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg",no2:"https://fastly.4sqi.net/img/general/699x268/1TFE4JRX1R04XIRHVCQL52PVR2J4XUTYBLKOADQPFJMP3ZI2.jpg"}],route:"https://g.page/ITKMITL?share",email:"sumet@it.kmitl.ac.th"},
+        {id:"06016319",name:"INTRODUCTION TO COMPUTER SYSYEMS",credit:"3",teach:"ผศ.ดร. สุภกิจ นุตยะสกุล",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง PROJECT BASE ชั้น 3",time:"13.00-16.00",date:"พ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg",no2:"https://static.trueplookpanya.com/tppy/member/m_525000_527500/525016/cms/images/%E0%B8%9E%E0%B8%B5%E0%B9%88%E0%B8%AB%E0%B8%A2%E0%B8%B2%E0%B8%87%20%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%AD%E0%B8%9A%20%E0%B8%9A%E0%B8%A3%E0%B8%A3%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A8%E0%B9%83%E0%B8%99%E0%B8%AB%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%20(4).png"}],route:"https://g.page/ITKMITL?share",email:"supakit@it.kmitl.ac.th"},
+        {id:"06016323",name:"MOBILE DEVICE PROGRAMMING",credit:"3",teach:"ดร. พัฒนพงษ์ ฉันทมิตรโอภาส",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง L207",time:"14.00-18.00",date:"อ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg",no2:"https://www.kmitl.ac.th/sites/default/files/2022-11/55.1.jpg"}],route:"https://g.page/ITKMITL?share",email:"pattanapong@it.kmitl.ac.th"},
       ],
-      users:this.user,
+      
       mySubject:[
-        {id:"06016310",name:"HUMAN INTERFACE DESIGN",credit:"3",teach:"รศ.ดร.นพพร โชติกกำธร",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"จ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"manop@it.kmitl.ac.th"},
-        {id:"06016323",name:"MOBILE DEVICE PROGRAMMING",credit:"3",teach:"ดร. พัฒนพงษ์ ฉันทมิตรโอภาส",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง L207",time:"14.00-18.00",date:"อ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg"}],route:"https://g.page/ITKMITL?share",email:"pattanapong@it.kmitl.ac.th"},
 
-     
+        {id:"06016310",name:"HUMAN INTERFACE DESIGN",credit:"3",teach:"รศ.ดร.นพพร โชติกกำธร",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง Audi",time:"9.00-12.00",date:"จ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg",no2:"https://www.it.kmitl.ac.th/wp-content/themes/itkmitl2017wp/img/life/life-10.jpg"}],route:"https://g.page/ITKMITL?share",email:"nopporn@it.kmitl.ac.th"},       
+        {id:"06016323",name:"MOBILE DEVICE PROGRAMMING",credit:"3",teach:"ดร. พัฒนพงษ์ ฉันทมิตรโอภาส",room:"ตึก IT คณะเทคโนโลยีสารสนเทศ ห้อง L207",time:"14.00-18.00",date:"อ.",image:[{no1:"https://www.techtalkthai.com/wp-content/uploads/2016/11/kmitl_it_data_science_01.jpg",no2:"https://www.kmitl.ac.th/sites/default/files/2022-11/55.1.jpg"}],route:"https://g.page/ITKMITL?share",email:"pattanapong@it.kmitl.ac.th"},     
         ],
       idSubject:"",
       modalAddSubject:false,
